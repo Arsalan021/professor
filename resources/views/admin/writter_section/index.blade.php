@@ -14,7 +14,7 @@
         <div class="col-12">
          <div class="card">
             <div class="card-header">
-             <a class="btn btn-success" href="{{ route('home_section.create') }}"> Create New User</a>
+             <a class="btn btn-success" href="{{ route('writter.create') }}"> Create New User</a>
 
             </div>
             <!-- /.card-header -->
@@ -39,7 +39,7 @@
                     <td>{{ $item->title??null }}</td>
                     <td>{{ $item->name??null }}</td>
                     <td>{{ $item->body??null }}</td>
-                    <td><img class="round" src="{{ asset('documents/home_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
+                    <td><img class="round" src="{{ asset('documents/writter_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
                     <td>
                       <div class="form-group">
                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
@@ -50,10 +50,10 @@
                     </td>
 
                     <td>
-                      <a class="btn btn-info" href="{{ route('home_section.show',$item->id) }}"><span class="action-edit"><i class="feather icon-eye"></i></span></a>
-                       <a class="btn btn-primary" href="{{ route('home_section.edit',$item->id) }}"><span class="action-edit"><i class="feather icon-edit"></i></span></a>
+                      <a class="btn btn-info" href="{{ route('writter.show',$item->id) }}"><span class="action-edit"><i class="feather icon-eye"></i></span></a>
+                       <a class="btn btn-primary" href="{{ route('writter.edit',$item->id) }}"><span class="action-edit"><i class="feather icon-edit"></i></span></a>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <form method="post" action="{{route('home_section.destroy',$item->id)}}" style="margin-top: -38px;margin-left: 150px";>
+                      <form method="post" action="{{route('writter.destroy',$item->id)}}" style="margin-top: -38px;margin-left: 150px";>
                          @csrf
                          @method('delete')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete This..??')" class="btn btn-default generalsetting_admin"><span class="action-delete"><i class="feather icon-trash"></i></span></button>

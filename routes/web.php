@@ -62,11 +62,11 @@ Route::middleware(['auth','can:isAdmin'])->prefix('admin')->group(function()
 
     Route::resource('users', UserController::class);
     Route::resource('home_section', HomeSectionController::class);
-    Route::resource('about ', AboutSectionController::class);
-    Route::resource('blog ', BlogSectionController::class);
-    Route::resource('human ', HumanSectionController::class);
-    Route::resource('professor ', ProfessorSectionController::class);
-    Route::resource('writter ', WritterSectionController::class);
+    Route::resource('about', AboutSectionController::class);
+    Route::resource('blog', BlogSectionController::class);
+    Route::resource('human', HumanSectionController::class);
+    Route::resource('professor', ProfessorSectionController::class);
+    Route::resource('writter', WritterSectionController::class);
 
    Route::controller(AdminController::class)->group(function ()
     {

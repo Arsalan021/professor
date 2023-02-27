@@ -14,7 +14,7 @@
         <div class="col-12">
          <div class="card">
             <div class="card-header">
-             <a class="btn btn-success" href="{{ route('home_section.create') }}"> Create New User</a>
+             <a class="btn btn-success" href="{{ route('about.create') }}"> Create New User</a>
 
             </div>
             <!-- /.card-header -->
@@ -39,7 +39,7 @@
                     <td>{{ $item->title??null }}</td>
                     <td>{{ $item->name??null }}</td>
                     <td>{{ $item->body??null }}</td>
-                    <td><img class="round" src="{{ asset('documents/home_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
+                    <td><img class="round" src="{{ asset('documents/about_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
                     <td>
                       <div class="form-group">
                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">

@@ -175,6 +175,76 @@
 
                     </ul>
                 </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">About Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'about.index') active @endif"><a
+                                href="{{ route('about.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'about.create') active @endif"><a
+                                href="{{ route('about.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Blog Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'blog.index') active @endif"><a
+                                href="{{ route('blog.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'blog.create') active @endif"><a
+                                href="{{ route('blog.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Human Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'human.index') active @endif"><a
+                                href="{{ route('human.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'human.create') active @endif"><a
+                                href="{{ route('human.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Professor Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'professor.index') active @endif"><a
+                                href="{{ route('professor.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'professor.create') active @endif"><a
+                                href="{{ route('professor.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Writter Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'writter.index') active @endif"><a
+                                href="{{ route('writter.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'writter.create') active @endif"><a
+                                href="{{ route('writter.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li>
+
+                    </ul>
+                </li>
 
 
             </ul>

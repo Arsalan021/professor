@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\WritterSection;
+use Str;
 
 class WritterSectionController extends Controller
 {
@@ -14,7 +16,9 @@ class WritterSectionController extends Controller
      */
     public function index()
     {
-        //
+        $data = WritterSection::orderBy('id','DESC')->get();
+
+        return view('admin.writter_section.index',compact('data'));
     }
 
     /**
@@ -24,7 +28,9 @@ class WritterSectionController extends Controller
      */
     public function create()
     {
-        //
+
+
+       return view('admin.writter_section.create');
     }
 
     /**
@@ -35,7 +41,25 @@ class WritterSectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+
+            'name' => 'required',
+            'body' => 'required'
+        ]);
+
+        $input = $request->except(['_token', 'image'],$request->all());
+
+
+        if($request->hasFile('image'))
+        {
+            $img = Str::random(20).$request->file('image')->getClientOriginalName();
+            $input['image'] = $img;
+            $request->image->move(public_path("documents/writter_section"), $img);
+        }
+        $data = WritterSection::create($input);
+
+        return redirect()->route('writter.index')->with(['message'=>'Section created successfully','type'=>'success']);
     }
 
     /**
@@ -46,7 +70,8 @@ class WritterSectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = WritterSection::find($id);
+        return view('admin.writter_section.show',compact('data'));
     }
 
     /**
@@ -57,7 +82,9 @@ class WritterSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = WritterSection::find($id);
+
+        return view('admin.writter_section.edit',compact('data'));
     }
 
     /**
@@ -69,7 +96,26 @@ class WritterSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [
+            'title' => 'required',
+
+            'name' => 'required',
+            'body' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        if($request->hasFile('image'))
+        {
+            $img = Str::random(20).$request->file('image')->getClientOriginalName();
+            $input['image'] = $img;
+            $request->image->move(public_path("documents/writter_section"), $img);
+        }
+        $data = WritterSection::find($id);
+
+        $data->update($input);
+        return redirect()->route('writter.index')->with(['message'=>'Section created successfully','type'=>'success']);
+
     }
 
     /**
@@ -80,6 +126,8 @@ class WritterSectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        WritterSection::find($id)->delete();
+        return redirect()->route('writter.index')
+                        ->with(['message'=>'Section delete successfully','type'=>'success']);
     }
 }

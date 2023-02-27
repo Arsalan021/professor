@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProfessorSection;
+use Str;
 
 class ProfessorSectionController extends Controller
 {
@@ -14,7 +16,9 @@ class ProfessorSectionController extends Controller
      */
     public function index()
     {
-        //
+        $data = ProfessorSection::orderBy('id','DESC')->get();
+
+        return view('admin.professor_section.index',compact('data'));
     }
 
     /**
@@ -24,7 +28,9 @@ class ProfessorSectionController extends Controller
      */
     public function create()
     {
-        //
+
+
+       return view('admin.professor_section.create');
     }
 
     /**
@@ -35,7 +41,25 @@ class ProfessorSectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+
+            'name' => 'required',
+            'body' => 'required'
+        ]);
+
+        $input = $request->except(['_token', 'image'],$request->all());
+
+
+        if($request->hasFile('image'))
+        {
+            $img = Str::random(20).$request->file('image')->getClientOriginalName();
+            $input['image'] = $img;
+            $request->image->move(public_path("documents/professor_section"), $img);
+        }
+        $data = ProfessorSection::create($input);
+
+        return redirect()->route('professor.index')->with(['message'=>'Section created successfully','type'=>'success']);
     }
 
     /**
@@ -46,7 +70,8 @@ class ProfessorSectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = ProfessorSection::find($id);
+        return view('admin.professor_section.show',compact('data'));
     }
 
     /**
@@ -57,7 +82,9 @@ class ProfessorSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ProfessorSection::find($id);
+
+        return view('admin.professor_section.edit',compact('data'));
     }
 
     /**
@@ -69,7 +96,26 @@ class ProfessorSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [
+            'title' => 'required',
+
+            'name' => 'required',
+            'body' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        if($request->hasFile('image'))
+        {
+            $img = Str::random(20).$request->file('image')->getClientOriginalName();
+            $input['image'] = $img;
+            $request->image->move(public_path("documents/professor_section"), $img);
+        }
+        $data = ProfessorSection::find($id);
+
+        $data->update($input);
+        return redirect()->route('professor.index')->with(['message'=>'Section created successfully','type'=>'success']);
+
     }
 
     /**
@@ -80,6 +126,8 @@ class ProfessorSectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ProfessorSection::find($id)->delete();
+        return redirect()->route('professor.index')
+                        ->with(['message'=>'Section delete successfully','type'=>'success']);
     }
 }
