@@ -12,20 +12,20 @@
 
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form-horizontal" action="{{ route('professor.update',$data->id) }}" novalidate
+                            <form class="form-horizontal" action="{{ route('professor.update', $data->id) }}" novalidate
                                 enctype="multipart/form-data" method="POST">
                                 @csrf
-                                @method("PATCH")
+                                @method('PATCH')
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label>Title</label>
                                             <div class="controls">
                                                 <input type="text" name="title" class="form-control"
                                                     data-validation-required-message="This field is required"
                                                     value="{{ $data->title ?? null }}" placeholder="Title">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label>Name</label>
                                             <div class="controls">
@@ -44,8 +44,17 @@
                                         <div class="form-group">
                                             <label>Body</label>
                                             <div class="controls">
-                                                <textarea name="body" class="form-control" id="basicTextarea" rows="3"
-                                                    data-validation-required-message="This field is required" placeholder="Textarea" style="height: 325px;">{{ $data->body ?? null }}</textarea>
+                                                <textarea name="body" class="form-control editor" id="basicTextarea" rows="3" placeholder="Textarea"
+                                                    style="height: 325px;">{{ $data->body ?? null }}</textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Additional Information</label>
+                                            <div class="controls">
+                                                <textarea name="add_info" class="form-control editor" id="basicTextarea1" rows="3"
+                                                    placeholder="Additional Information" style="height: 325px;">{!! $data->add_info ?? null !!}</textarea>
                                             </div>
                                         </div>
 

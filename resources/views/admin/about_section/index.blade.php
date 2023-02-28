@@ -13,10 +13,10 @@
         <div class="row">
         <div class="col-12">
          <div class="card">
-            <div class="card-header">
+            {{-- <div class="card-header">
              <a class="btn btn-success" href="{{ route('about.create') }}"> Create New User</a>
 
-            </div>
+            </div> --}}
             <!-- /.card-header -->
             <div class="card-body">
             <table class="table table-striped dataex-html5-selectors" >
@@ -39,7 +39,8 @@
                     <td>{{ $item->title??null }}</td>
                     <td>{{ $item->name??null }}</td>
                     <td>{{ $item->body??null }}</td>
-                    <td><img class="round" src="{{ asset('documents/about_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
+
+                    <td><img class="round" src='{{ asset("documents/about_section/$item->image??null") }}' alt="avatar" height="40" width="40"></td>
                     <td>
                       <div class="form-group">
                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
@@ -50,10 +51,10 @@
                     </td>
 
                     <td>
-                      <a class="btn btn-info" href="{{ route('home_section.show',$item->id) }}"><span class="action-edit"><i class="feather icon-eye"></i></span></a>
-                       <a class="btn btn-primary" href="{{ route('home_section.edit',$item->id) }}"><span class="action-edit"><i class="feather icon-edit"></i></span></a>
+                      <a class="btn btn-info" href="{{ route('about.show',$item->id) }}"><span class="action-edit"><i class="feather icon-eye"></i></span></a>
+                       <a class="btn btn-primary" href="{{ route('about.edit',$item->id) }}"><span class="action-edit"><i class="feather icon-edit"></i></span></a>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <form method="post" action="{{route('home_section.destroy',$item->id)}}" style="margin-top: -38px;margin-left: 150px";>
+                      <form method="post" action="{{route('about.destroy',$item->id)}}" style="margin-top: -38px;margin-left: 150px";>
                          @csrf
                          @method('delete')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete This..??')" class="btn btn-default generalsetting_admin"><span class="action-delete"><i class="feather icon-trash"></i></span></button>
@@ -103,7 +104,7 @@
     else
         var status=0;
     $.ajax({
-        url : "{{route('change-status')}}",
+        url : "{{route('about-change-status')}}",
         type: 'GET',
         /*dataType: 'json',*/
         data: {'id': this.id,'status':status},

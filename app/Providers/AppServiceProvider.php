@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\HomeSection;
+use App\Models\FooterSection;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // $home  = HomeSection::where('status','1')->first();
+        // view()->share('home',$home);
+         $footer  = FooterSection::where('status','1')->first();
+        view()->share('footer',$footer);
     }
 }

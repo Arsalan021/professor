@@ -41,11 +41,11 @@ class AboutSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+         $this->validate($request, [
             'title' => 'required',
-
             'name' => 'required',
             'body' => 'required'
+
         ]);
 
         $input = $request->except(['_token', 'image'],$request->all());
@@ -96,9 +96,9 @@ class AboutSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+
          $this->validate($request, [
             'title' => 'required',
-
             'name' => 'required',
             'body' => 'required'
         ]);
@@ -129,5 +129,17 @@ class AboutSectionController extends Controller
         AboutSection::find($id)->delete();
         return redirect()->route('about.index')
                         ->with(['message'=>'Section delete successfully','type'=>'success']);
+    }
+
+    public function change_status(Request $request)
+    {
+        $statusChange = AboutSection::where('id',$request->id)->update(['status'=>$request->status]);
+        if($statusChange)
+        {
+            return array('message'=>'Status  has been changed successfully','type'=>'success');
+        }else{
+            return array('message'=>'Status has not changed please try again','type'=>'error');
+        }
+
     }
 }

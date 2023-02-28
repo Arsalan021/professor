@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-
                     <div class="card-content">
                         <div class="card-body">
                             <form class="form-horizontal" action="{{ route('about.store') }}" novalidate
@@ -36,20 +35,21 @@
                                             <label>Image</label>
                                             <div class="controls">
                                                 <input type="file" name="image" class="form-control"
-
                                                     placeholder="Image">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Body</label>
                                             <div class="controls">
-                                                <textarea name="body" class="form-control" id="basicTextarea" rows="3" data-validation-required-message="This field is required"  placeholder="Textarea" style="height: 325px;"></textarea>
+                                                <textarea name="body" class="form-control editor" id="basicTextarea" rows="3"
+                                                    placeholder="Textarea" style="height: 325px;"></textarea>
                                             </div>
                                         </div>
 
                                     </div>
 
                                 </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
@@ -101,5 +101,7 @@
                 break;
 
         }
+
+
     </script>
 @endsection

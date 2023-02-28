@@ -18,7 +18,7 @@
                                 @method("PATCH")
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label>Title</label>
                                             <div class="controls">
                                                 <input type="text" name="title" class="form-control"
@@ -40,12 +40,12 @@
                                                 <input type="file" name="image" class="form-control"
                                                     value="{{ $data->image ?? null }}" placeholder="Image">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label>Body</label>
                                             <div class="controls">
-                                                <textarea name="body" class="form-control" id="basicTextarea" rows="3"
-                                                    data-validation-required-message="This field is required" placeholder="Textarea" style="height: 325px;">{{ $data->body ?? null }}</textarea>
+                                                <textarea name="body" class="form-control editor" id="basicTextarea" rows="3"
+                                                      placeholder="Textarea" style="height: 325px;">{{ $data->body ?? null }}</textarea>
                                             </div>
                                         </div>
 

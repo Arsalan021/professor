@@ -19,7 +19,7 @@
                             <div class="row">
                                 <div class="users-view-image">
                                     @if (isset($data->image))
-                                        <img src="{{ asset('documents/blog_section/'.$data->image) }}"
+                                        <img src='{{ asset("documents/blog_section/$item->image??null") }}'
                                         class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="Home Image">
                                     @else
                                     <img src="{{ asset('app-assets/images/portrait/small/avatar-s-11.jpg') }}"

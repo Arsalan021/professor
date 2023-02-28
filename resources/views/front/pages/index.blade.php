@@ -1,36 +1,24 @@
 @extends('front.layout.layout')
 @section('content')
-    <section class="sectionbody1">
+     <section class="sectionbody1">
         <div class="container">
             <div class="row align-items-center" id="">
                 <div class="col-lg-7" id="sectionbodyrespidcol1" data-aos="fade-down" data-aos-duration="3000">
-                    <p>Hello, I AM</p>
-                    <h1>Nicole Elizabeth Barnes</h1>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
+                    <p>{{ $home->title??null }}</p>
+                    <h1>{{ $home->name??null }}</h1>
+                    <span>{!! $home->body??null !!}</span>
                     <br>
                     <br>
                     <button>Read More</button>
 
 
                 </div>
+                @php
+                    $home_image = $home->image??null;
+                @endphp
 
                 <div class="col-lg-5" id="sectionbodyrespidcol2">
-                    <img src="{{ asset('front/assets/img/avartar-1.png') }}" alt="" class="img-fluid">
+                    <img src='{{ asset("documents/home_section/$home_image") }}' alt="" class="img-fluid">
                 </div>
             </div>
             <div class="row" data-aos="fade-up-left" data-aos-duration="3000">
@@ -57,34 +45,22 @@
         <div class="container">
             <div class="row align-items-center row22" id="section22222row">
 
+                 @php
+                    $about_image = $about->image??null;
+                @endphp
 
                 <div class="col-xl-6" id="colimgess">
-                    <img src="{{ asset('front/assets/img/avator2.png') }}" alt="" class="img-fluid">
+                    <img src='{{ asset("documents/about_section/$about_image") }}' alt="" class="img-fluid">
                 </div>
 
                 <div class="col-xl-6 p-5" id="colcontennt" data-aos="flip-left" data-aos-duration="3000">
                     <br>
                     <p>About us</p>
-                    <h2>Hello! I AM</h2>
-                    <h1>Nicole Elizabeth Barnes</h1>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac metus vel turpis tempus
-                        ultrices quis ac dolor. Fusce bibendum et risus in eleifend.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Aliquam ac metus vel turpis tempus ultrices quis ac dolor. Fusce bibendum et risus
-                        in eleifend.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac metus vel turpis
-                        tempus ultrices quis ac dolor. Fusce bibendum et risus in eleifend.</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac metus vel turpis tempus
-                        ultrices quis ac dolor. Fusce bibendum et risus in eleifend.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Aliquam ac metus vel turpis tempus ultrices quis ac dolor. Fusce bibendum et risus
-                        in eleifend.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac metus vel turpis
-                        tempus ultrices quis ac dolor. Fusce bibendum et risus in eleifend.</span>
-
-                    <p></p>
-
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac metus vel turpis tempus
-                        ultrices quis ac dolor. Fusce bibendum et risus in eleifend.Lorem ipsum dolor sit amet,
-                        consectetur.</span>
-                    <p></p>
-
+                    <h2>{{ $about->title??null }}</h2>
+                    <h1>{{ $about->name??null }}</h1>
+                   <span>{!! $about->body??null !!}</span>
+                    <br>
+                    <br>
                     <button>Read More</button>
 
                 </div>
@@ -98,17 +74,19 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-7" data-aos="fade-up" data-aos-duration="3000">
-                    <p>Hello, I AM</p>
-                    <h1>Nicole Elizabeth Barnes</h1>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec quam. Lorem ipsum dolor sit
-                        amet, consectetur.</span>
+                    <p>{{ $section->title??null }}</p>
+                    <h1>{{ $section->name??null }}</h1>
+                    <span>{!! $section->body??null !!}</span>
                     <br>
                     <button class="mt-4">Read More</button>
 
                 </div>
 
                 <div class="col-md-5" data-aos="zoom-in-down" data-aos-duration="3000">
-                    <img src="{{ asset('front/assets/img/ddddd.png') }}" alt="" class="img-fluid">
+                    @php
+                    $section2_image = $section->image??null;
+                @endphp
+                    <img src='{{ asset("documents/section2/$section2_image") }}' alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -128,40 +106,16 @@
             </div>
             <div class="row pt-3">
                 <div class="col-lg-6" id="ullidev" data-aos="flip-left" data-aos-duration="3000">
-                    <ul>
-                        <li>Lorem Ipsum is simply </li>
-                    </ul>
-                    <ol>
-                        <li>Lorem Ipsum is simply</li>
-                    </ol>
-
-
-
-                    <ul>
-                        <li>Lorem Ipsum is simply </li>
-                    </ul>
-                    <ol class="">
-                        <li>Lorem Ipsum is simply</li>
-                        <li>Lorem Ipsum is simply</li>
-                        <li>Lorem Ipsum is simply</li>
-                        <li>Lorem Ipsum is simply</li>
-                        <li>Lorem Ipsum is simply</li>
-                    </ol>
-                    <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy. has been the industry's standard dummy.</p>
+                    @if (isset($blog[0]->body))
+                    {!! $blog[0]->body??null !!}
+                    @endif
                 </div>
 
                 <div class="col-lg-6 text-white" data-aos="flip-right" data-aos-duration="3000">
                     <div class="ourbloggs_right_col">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.
-                            Lorem Ipsum has been the industry's standard dummy.Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                            since the 1500s, when an unknown printer took a galley. Lorem Ipsum has been the industry's
-                            standard dummy. printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                            dummy text ever since the 1500s, when an unknown printer.</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard . has been the industry's standard .Lorem Ipsum is.</p>
+                         @if (isset($blog[1]->body))
+                        {!! $blog[1]->body??null !!}
+                          @endif
                     </div>
                 </div>
             </div>
@@ -190,11 +144,8 @@
                 </div>
                 <div class="col-xl-6" id="writer-content" data-aos="zoom-out-down">
                     <p>Writer</p>
-                    <h1>Nicole <br>
-                        Elizabeth Barnes</h1>
+                    <h1>{{ $home->name??null }}</h1>
                     <div class="title">
-
-
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-home-tab" data-toggle="pill"
@@ -216,57 +167,10 @@
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                 aria-labelledby="pills-home-tab">
                                 <div class="readmore">
-                                    <ul class="mt-2">
+                                    {{-- writter --}}
+                                    {!! $writter->body??null !!}
 
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    </ul>
-                                    <ol>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                    </ol>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    </ul>
-                                    <ol>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                    </ol>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    </ul>
-                                    <ol>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                    </ol>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    </ul>
-                                    <ol>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                        <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                    </ol>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply </li>
-                                    </ul>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply </li>
-                                    </ul>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply </li>
-                                    </ul>
-                                    <ul>
-                                        <li>Lorem Ipsum is simply </li>
-                                    </ul>
-                                    <br>
-                                    <button>Read More</button>
+                                    <a class="btn" href="{{ route('web.write') }}">Read More</a>
                                     <br>
                                     <br>
                                     <br>
@@ -275,58 +179,12 @@
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                 aria-labelledby="pills-profile-tab">
+                                {{-- professor --}}
+                                {!! $professor->body??null !!}
 
-                                <ul class="mt-2">
 
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
                                 <br>
-                                <button>Read More</button>
+                                <a class="btn"  href="{{ route('web.professor') }}">Read More</a>
                                 <br>
                                 <br>
                                 <br>
@@ -336,57 +194,10 @@
 
                             <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                                 aria-labelledby="pills-contact-tab">
-                                <ul class="mt-2">
-
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                </ul>
-                                <ol>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply Lorem Ipsum is simply</li>
-
-                                </ol>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
-                                <ul>
-                                    <li>Lorem Ipsum is simply </li>
-                                </ul>
+                                 {{-- Human --}}
+                                 {!! $human->body??null !!}
                                 <br>
-                                <button>Read More</button>
+                                <a class="btn" href="{{ route('web.human') }}">Read More</a>
                                 <br>
                                 <br>
                                 <br>

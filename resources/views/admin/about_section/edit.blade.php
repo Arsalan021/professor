@@ -14,8 +14,8 @@
                         <div class="card-body">
                             <form class="form-horizontal" action="{{ route('about.update',$data->id) }}" novalidate
                                 enctype="multipart/form-data" method="POST">
-                                @csrf
                                 @method("PATCH")
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -44,8 +44,8 @@
                                         <div class="form-group">
                                             <label>Body</label>
                                             <div class="controls">
-                                                <textarea name="body" class="form-control" id="basicTextarea" rows="3"
-                                                    data-validation-required-message="This field is required" placeholder="Textarea" style="height: 325px;">{{ $data->body ?? null }}</textarea>
+                                                <textarea name="body" class="form-control editor" id="basicTextarea" rows="3"
+                                                     placeholder="Textarea" style="height: 325px;">{{ $data->body ?? null }}</textarea>
                                             </div>
                                         </div>
 

@@ -37,7 +37,9 @@
 </head>
 
 <body>
-
+    @php
+        $date = Date('Y')
+    @endphp
 
 
     <section class="sectionheader">
@@ -76,13 +78,13 @@
     <section class="footer1">
         <div class="container">
             <div class="col-md-12 text-center mt-5">
-                <h1>Nicole Elizabeth Barnes</h1>
-                <p><strong>Email:</strong>nicole.barnes@duke.edu</p>
+                <h1>{{ $footer->name??null }}</h1>
+                <p><strong>Email:&nbsp </strong>{{ $footer->email??null }}</p>
                 <hr>
             </div>
 
             <div class="col-md-12 text-center">
-                <p>© 2023. All rights reserved by nicole Elizabeth Barnes</p>
+                <p>© {{ $date }} All rights reserved by {{ $footer->name??null }}</p>
             </div>
         </div>
     </section>

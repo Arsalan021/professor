@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\HumanSectionController;
 use App\Http\Controllers\Admin\ProfessorSectionController;
 use App\Http\Controllers\Admin\WritterSectionController;
+use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\FooterController;
 
 // For User
 use App\Http\Controllers\User\UserController as UController;
@@ -30,7 +32,7 @@ use App\Http\Controllers\User\UserController as UController;
 |
 */
 Route::get('/',[FrontController::class,'index'])->name('web.home');
-Route::get('/write',[FrontController::class,'write'])->name('web.write');
+Route::get('/writter',[FrontController::class,'write'])->name('web.write');
 Route::get('/professor',[FrontController::class,'professor'])->name('web.professor');
 Route::get('/human',[FrontController::class,'human'])->name('web.human');
 
@@ -57,16 +59,23 @@ Route::controller(\App\Http\Controllers\Admin\AdminController::class)->group(fun
 
 Route::middleware(['auth','can:isAdmin'])->prefix('admin')->group(function()
 {
-
-
-
     Route::resource('users', UserController::class);
     Route::resource('home_section', HomeSectionController::class);
     Route::resource('about', AboutSectionController::class);
+    Route::get('home-change-status',[HomeSectionController::class,'change_status'])->name('home-change-status');
+    Route::get('about-change-status',[AboutSectionController::class,'change_status'])->name('about-change-status');
     Route::resource('blog', BlogSectionController::class);
+    Route::get('blog-change-status',[BlogSectionController::class,'change_status'])->name('blog-change-status');
     Route::resource('human', HumanSectionController::class);
+    Route::get('human-change-status',[HumanSectionController::class,'change_status'])->name('human-change-status');
     Route::resource('professor', ProfessorSectionController::class);
+    Route::get('professor-change-status',[ProfessorSectionController::class,'change_status'])->name('professor-change-status');
     Route::resource('writter', WritterSectionController::class);
+    Route::get('writter-change-status',[WritterSectionController::class,'change_status'])->name('writter-change-status');
+    Route::resource('section2', SectionController::class);
+    Route::get('section2-change-status',[SectionController::class,'change_status'])->name('section2-change-status');
+    Route::resource('footer', FooterController::class);
+    Route::get('footer-change-status',[FooterController::class,'change_status'])->name('footer-change-status');
 
    Route::controller(AdminController::class)->group(function ()
     {

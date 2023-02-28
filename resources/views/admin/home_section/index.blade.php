@@ -13,10 +13,10 @@
         <div class="row">
         <div class="col-12">
          <div class="card">
-            <div class="card-header">
+            {{-- <div class="card-header">
              <a class="btn btn-success" href="{{ route('home_section.create') }}"> Create New User</a>
 
-            </div>
+            </div> --}}
             <!-- /.card-header -->
             <div class="card-body">
             <table class="table table-striped dataex-html5-selectors" >
@@ -39,7 +39,7 @@
                     <td>{{ $item->title??null }}</td>
                     <td>{{ $item->name??null }}</td>
                     <td>{{ $item->body??null }}</td>
-                    <td><img class="round" src="{{ asset('documents/home_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
+                    <td><img class="round" src='{{ asset("documents/home_section/$item->image??null") }}' alt="avatar" height="40" width="40"></td>
                     <td>
                       <div class="form-group">
                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
@@ -103,7 +103,7 @@
     else
         var status=0;
     $.ajax({
-        url : "{{route('change-status')}}",
+        url : "{{route('home-change-status')}}",
         type: 'GET',
         /*dataType: 'json',*/
         data: {'id': this.id,'status':status},

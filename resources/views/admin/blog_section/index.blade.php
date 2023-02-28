@@ -14,7 +14,7 @@
         <div class="col-12">
          <div class="card">
             <div class="card-header">
-             <a class="btn btn-success" href="{{ route('blog.create') }}"> Create New User</a>
+             <a class="btn btn-success" href="{{ route('blog.create') }}"> Create New Blog</a>
 
             </div>
             <!-- /.card-header -->
@@ -39,7 +39,8 @@
                     <td>{{ $item->title??null }}</td>
                     <td>{{ $item->name??null }}</td>
                     <td>{{ $item->body??null }}</td>
-                    <td><img class="round" src="{{ asset('documents/blog_section/', $item->image??null) }}" alt="avatar" height="40" width="40"></td>
+
+                    <td><img class="round" src='{{ asset("documents/blog_section/$item->image??null") }}' alt="avatar" height="40" width="40"></td>
                     <td>
                       <div class="form-group">
                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
@@ -103,7 +104,7 @@
     else
         var status=0;
     $.ajax({
-        url : "{{route('change-status')}}",
+        url : "{{route('blog-change-status')}}",
         type: 'GET',
         /*dataType: 'json',*/
         data: {'id': this.id,'status':status},

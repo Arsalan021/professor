@@ -42,9 +42,7 @@ class WritterSectionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-
-            'name' => 'required',
+            'add_info' => 'required',
             'body' => 'required'
         ]);
 
@@ -96,10 +94,8 @@ class WritterSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request, [
-            'title' => 'required',
-
-            'name' => 'required',
+        $this->validate($request, [
+            'add_info' => 'required',
             'body' => 'required'
         ]);
 
@@ -129,5 +125,17 @@ class WritterSectionController extends Controller
         WritterSection::find($id)->delete();
         return redirect()->route('writter.index')
                         ->with(['message'=>'Section delete successfully','type'=>'success']);
+    }
+    public function change_status(Request $request)
+    {
+
+        $statusChange = WritterSection::where('id',$request->id)->update(['status'=>$request->status]);
+        if($statusChange)
+        {
+            return array('message'=>'Status  has been changed successfully','type'=>'success');
+        }else{
+            return array('message'=>'Status has not changed please try again','type'=>'error');
+        }
+
     }
 }

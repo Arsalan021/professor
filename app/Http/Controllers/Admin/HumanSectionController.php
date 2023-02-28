@@ -42,10 +42,10 @@ class HumanSectionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
 
-            'name' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'add_info' => 'required',
+
         ]);
 
         $input = $request->except(['_token', 'image'],$request->all());
@@ -96,10 +96,9 @@ class HumanSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request, [
-            'title' => 'required',
 
-            'name' => 'required',
+         $this->validate($request, [
+           'add_info' => 'required',
             'body' => 'required'
         ]);
 
@@ -114,6 +113,7 @@ class HumanSectionController extends Controller
         $data = HumanSection::find($id);
 
         $data->update($input);
+
         return redirect()->route('human.index')->with(['message'=>'Section created successfully','type'=>'success']);
 
     }
@@ -129,5 +129,17 @@ class HumanSectionController extends Controller
         HumanSection::find($id)->delete();
         return redirect()->route('human.index')
                         ->with(['message'=>'Section delete successfully','type'=>'success']);
+    }
+
+    public function change_status(Request $request)
+    {
+        $statusChange = HumanSection::where('id',$request->id)->update(['status'=>$request->status]);
+        if($statusChange)
+        {
+            return array('message'=>'Status  has been changed successfully','type'=>'success');
+        }else{
+            return array('message'=>'Status has not changed please try again','type'=>'error');
+        }
+
     }
 }

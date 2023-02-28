@@ -14,8 +14,11 @@
     <section class="section7 mt-5">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6" id="writer-imagee" data-aos="flip-up"data-aos-duration="3000">
-                    <img src="{{ asset('front/assets/img/professor.png') }}" alt="" class="">
+                 @php
+                    $image = $data->image??null
+                @endphp
+                <div class="col-xl-6" id="writer-imagee" data-aos="flip-up"data-aos-duration="3000">
+                    <img src='{{ asset("documents/writter_section/$image") }}' alt="" class="">
                 </div>
 
                 <div class="col-lg-6 p-5" id="writer-content" data-aos="flip-left" data-aos-duration="3000">
@@ -23,56 +26,16 @@
 
 
                     <p>Writer</p>
-                    <h1>Nicole
-                        Elizabeth Barnes</h1>
+                    <h1>{{$data->name??null}}</h1>
                     <div class="title">
-
-
                         <br>
-                        <ul>
-                            <li>Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply</li>
-                        </ul>
-                        <span>
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            <br>
-                            <br>
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-                            Lorem Ipsum is simply Lorem Ipsum is simply
-
+                        <span>{!! $data->body??null !!}
                         </span>
-
                         <br>
                         <br>
+                        @if (isset($data))
                         <button>Read More</button>
+                        @endif
                         <br>
                         <br>
 
@@ -89,43 +52,7 @@
 
     <section class="section10">
         <div class="container mt-5">
-            <h1>Creative Writer</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has
-                been the industry's standard dummy.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley. Lorem Ipsum has been the industry's standard dummy. printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has
-                been the industry's standard dummy.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley. Lorem Ipsum has been the industry's standard dummy. printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has
-                been the industry's standard dummy.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p>
-
-        </div>
-
-        <div class="container mt-5">
-            <h1>Turn Your Idea Into <br>
-                Appealing Story.</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has
-                been the industry's standard dummy.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley. Lorem Ipsum has been the industry's standard dummy. printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has
-                been the industry's standard dummy.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley. Lorem Ipsum has been the industry's standard dummy. printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer.</p>
+              {!! $data->add_info??null !!}
         </div>
 
         <img src="{{ asset('front/assets/img/rightsidetoprec.png') }}" alt="" class="img-fluid rightsidetoprec">

@@ -41,7 +41,6 @@ class HomeSectionController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'image' => 'required',
             'name' => 'required',
             'body' => 'required'
         ]);
@@ -94,9 +93,10 @@ class HomeSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+
          $this->validate($request, [
             'title' => 'required',
-            'image' => 'required',
+
             'name' => 'required',
             'body' => 'required'
         ]);
@@ -127,5 +127,17 @@ class HomeSectionController extends Controller
         HomeSection::find($id)->delete();
         return redirect()->route('home_section.index')
                         ->with(['message'=>'Home Section delete successfully','type'=>'success']);
+    }
+
+    public function change_status(Request $request)
+    {
+        $statusChange = HomeSection::where('id',$request->id)->update(['status'=>$request->status]);
+        if($statusChange)
+        {
+            return array('message'=>'Status  has been changed successfully','type'=>'success');
+        }else{
+            return array('message'=>'Status has not changed please try again','type'=>'error');
+        }
+
     }
 }

@@ -29,6 +29,10 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('app-assets/css/plugins/forms/validation/form-validation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-user.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/editors/quill/katex.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/editors/quill/monokai-sublime.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/editors/quill/quill.snow.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/editors/quill/quill.bubble.css') }}">
 
     <!-- END: Vendor CSS-->
 
@@ -168,10 +172,10 @@
                                 href="{{ route('home_section.index') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="List">List</span></a>
                         </li>
-                        <li class="@if (Route::currentRouteName() == 'home_section.create') active @endif"><a
+                        {{-- <li class="@if (Route::currentRouteName() == 'home_section.create') active @endif"><a
                                 href="{{ route('home_section.create') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="View">Create User</span></a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </li>
@@ -182,27 +186,14 @@
                                 href="{{ route('about.index') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="List">List</span></a>
                         </li>
-                        <li class="@if (Route::currentRouteName() == 'about.create') active @endif"><a
+                        {{-- <li class="@if (Route::currentRouteName() == 'about.create') active @endif"><a
                                 href="{{ route('about.create') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="View">Create User</span></a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
-                            data-i18n="User">Blog Section</span></a>
-                    <ul class="menu-content">
-                        <li class="@if (Route::currentRouteName() == 'blog.index') active @endif"><a
-                                href="{{ route('blog.index') }}"><i class="feather icon-circle"></i><span
-                                    class="menu-item" data-i18n="List">List</span></a>
-                        </li>
-                        <li class="@if (Route::currentRouteName() == 'blog.create') active @endif"><a
-                                href="{{ route('blog.create') }}"><i class="feather icon-circle"></i><span
-                                    class="menu-item" data-i18n="View">Create User</span></a>
-                        </li>
 
-                    </ul>
-                </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
                             data-i18n="User">Human Section</span></a>
                     <ul class="menu-content">
@@ -210,10 +201,10 @@
                                 href="{{ route('human.index') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="List">List</span></a>
                         </li>
-                        <li class="@if (Route::currentRouteName() == 'human.create') active @endif"><a
+                        {{-- <li class="@if (Route::currentRouteName() == 'human.create') active @endif"><a
                                 href="{{ route('human.create') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="View">Create User</span></a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </li>
@@ -224,10 +215,10 @@
                                 href="{{ route('professor.index') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="List">List</span></a>
                         </li>
-                        <li class="@if (Route::currentRouteName() == 'professor.create') active @endif"><a
+                        {{-- <li class="@if (Route::currentRouteName() == 'professor.create') active @endif"><a
                                 href="{{ route('professor.create') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="View">Create User</span></a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </li>
@@ -238,10 +229,52 @@
                                 href="{{ route('writter.index') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="List">List</span></a>
                         </li>
-                        <li class="@if (Route::currentRouteName() == 'writter.create') active @endif"><a
+                        {{-- <li class="@if (Route::currentRouteName() == 'writter.create') active @endif"><a
                                 href="{{ route('writter.create') }}"><i class="feather icon-circle"></i><span
                                     class="menu-item" data-i18n="View">Create User</span></a>
+                        </li> --}}
+
+                    </ul>
+                </li><li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'section2.index') active @endif"><a
+                                href="{{ route('section2.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
                         </li>
+                        {{-- <li class="@if (Route::currentRouteName() == 'section2.create') active @endif"><a
+                                href="{{ route('section2.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create User</span></a>
+                        </li> --}}
+
+                    </ul>
+                </li>
+
+                 <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Blog Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'blog.index') active @endif"><a
+                                href="{{ route('blog.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li class="@if (Route::currentRouteName() == 'blog.create') active @endif"><a
+                                href="{{ route('blog.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create Blog</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+                            data-i18n="User">Footer Section</span></a>
+                    <ul class="menu-content">
+                        <li class="@if (Route::currentRouteName() == 'footer.index') active @endif"><a
+                                href="{{ route('footer.index') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        {{-- <li class="@if (Route::currentRouteName() == 'footer.create') active @endif"><a
+                                href="{{ route('footer.create') }}"><i class="feather icon-circle"></i><span
+                                    class="menu-item" data-i18n="View">Create Footer</span></a>
+                        </li> --}}
 
                     </ul>
                 </li>
@@ -304,6 +337,9 @@
     <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
+    {{-- <script src="{{ asset('app-assets/vendors/js/editors/quill/katex.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/editors/quill/highlight.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/editors/quill/quill.min.js') }}"></script> --}}
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -317,6 +353,8 @@
     <script src="{{ asset('app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/forms/validation/jqBootstrapValidation.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/validation/form-validation.js') }}"></script>
+    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+    {{-- <script src="{{ asset('app-assets/js/scripts/editors/editor-quill.js') }}"></script> --}}
 
 
     <script src="{{ asset('app-assets/js/waitMe.js') }}"></script>
@@ -351,6 +389,16 @@
             $('.buttons-print').addClass('d-none');
 
 
+        });
+        $(document).ready(function() {
+            $('.editor').each(function(e) {
+                CKEDITOR.replace(this.id, {
+                    allowedContent: true,
+                    toolbar: 'Full',
+                    enterMode: CKEDITOR.ENTER_BR,
+                    shiftEnterMode: CKEDITOR.ENTER_P,
+                });
+            });
         });
     </script>
     <!-- END: Page JS-->

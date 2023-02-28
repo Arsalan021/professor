@@ -19,11 +19,8 @@
                             <div class="row">
                                 <div class="users-view-image">
                                     @if (isset($data->image))
-                                        <img src="{{ asset('documents/human_section/'.$data->image) }}"
+                                        <img src='{{ asset("documents/human_section/$item->image") }}'
                                         class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="Home Image">
-                                    @else
-                                    <img src="{{ asset('app-assets/images/portrait/small/avatar-s-11.jpg') }}"
-                                        class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="avatar">
                                     @endif
                                 </div>
                                 <div class="col-12 col-sm-9 col-md-6 col-lg-5">
@@ -43,7 +40,7 @@
 
                                             <tr>
                                                 <td class="font-weight-bold">Body :</td>
-                                                <td>{{ $data->body??null }}</td>
+                                                <td>{!! $data->add_info !!}</td>
                                             </tr>
 
                                     </table>
